@@ -52,15 +52,15 @@ class ControllerPaymentMolpay extends Controller {
 
         $_POST['treq']=   1;
 
-        $tranID = $_POST['tranID'];
-        $orderid = $_POST['orderid'];
-        $status = $_POST['status'];
-        $domain = $_POST['domain'];
-        $amount = $_POST['amount'];
-        $currency = $_POST['currency'];
-        $appcode = $_POST['appcode'];
-        $paydate = $_POST['paydate'];
-        $skey = $_POST['skey'];
+        $tranID = (isset($_POST['tranID']) && !empty($_POST['tranID'])) ? $_POST['tranID'] : '';
+        $orderid = (isset($_POST['orderid']) && !empty($_POST['orderid'])) ? $_POST['orderid'] : '';
+        $status = (isset($_POST['status']) && !empty($_POST['status'])) ? $_POST['status'] : '';
+        $domain = (isset($_POST['domain']) && !empty($_POST['domain'])) ? $_POST['domain'] : '';
+        $amount = (isset($_POST['amount']) && !empty($_POST['amount'])) ? $_POST['amount'] : '';
+        $currency = (isset($_POST['currency']) && !empty($_POST['currency'])) ? $_POST['currency'] : '';
+        $appcode = (isset($_POST['appcode']) && !empty($_POST['appcode'])) ? $_POST['appcode'] : '';
+        $paydate = (isset($_POST['paydate']) && !empty($_POST['paydate'])) ? $_POST['paydate'] : '';
+        $skey = (isset($_POST['skey']) && !empty($_POST['skey'])) ? $_POST['skey'] : '';
 
         /***********************************************************
         * Backend acknowledge method for IPN (DO NOT MODIFY)
@@ -84,17 +84,7 @@ class ControllerPaymentMolpay extends Controller {
         /***********************************************************
         * End of Acknowledge method for IPN
         ************************************************************/
-		// echo $tranID."</br>";
-        // echo $orderid."</br>";
-        // echo $status."</br>";
-        // echo $domain."</br>";
-        // echo $amount."</br>";
-        // echo $currency."</br>";
-        // echo $appcode."</br>";
-        // echo $paydate."</br>";
-        // echo $skey."</br>";
-		// exit;
-        
+		        
 		$key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
         $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
 
@@ -127,16 +117,16 @@ class ControllerPaymentMolpay extends Controller {
 
         $vkey = $this->config->get('molpay_vkey');
 
-        $nbcb = $_POST['nbcb'];
-        $tranID = $_POST['tranID'];
-        $orderid = $_POST['orderid'];
-        $status = $_POST['status'];
-        $domain = $_POST['domain'];
-        $amount = $_POST['amount'];
-        $currency = $_POST['currency'];
-        $appcode = $_POST['appcode'];
-        $paydate = $_POST['paydate'];
-        $skey = $_POST['skey'];
+        $nbcb = (isset($_POST['nbcb']) && !empty($_POST['nbcb'])) ? $_POST['nbcb'] : '';
+        $tranID = (isset($_POST['tranID']) && !empty($_POST['tranID'])) ? $_POST['tranID'] : '';
+        $orderid = (isset($_POST['orderid']) && !empty($_POST['orderid'])) ? $_POST['orderid'] : '';
+        $status = (isset($_POST['status']) && !empty($_POST['status'])) ? $_POST['status'] : '';
+        $domain = (isset($_POST['domain']) && !empty($_POST['domain'])) ? $_POST['domain'] : '';
+        $amount = (isset($_POST['amount']) && !empty($_POST['amount'])) ? $_POST['amount'] : '';
+        $currency = (isset($_POST['currency']) && !empty($_POST['currency'])) ? $_POST['currency'] : '';
+        $appcode = (isset($_POST['appcode']) && !empty($_POST['appcode'])) ? $_POST['appcode'] : '';
+        $paydate = (isset($_POST['paydate']) && !empty($_POST['paydate'])) ? $_POST['paydate'] : '';
+        $skey = (isset($_POST['skey']) && !empty($_POST['skey'])) ? $_POST['skey'] : '';
 
         $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
         $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
@@ -169,16 +159,16 @@ class ControllerPaymentMolpay extends Controller {
 
         $vkey = $this->config->get('molpay_vkey');
 
-        $nbcb = $_POST['nbcb'];
-        $tranID = $_POST['tranID'];
-        $orderid = $_POST['orderid'];
-        $status = $_POST['status'];
-        $domain = $_POST['domain'];
-        $amount = $_POST['amount'];
-        $currency = $_POST['currency'];
-        $appcode = $_POST['appcode'];
-        $paydate = $_POST['paydate'];
-        $skey = $_POST['skey'];
+        $nbcb = (isset($_POST['nbcb']) && !empty($_POST['nbcb'])) ? $_POST['nbcb'] : '';
+        $tranID = (isset($_POST['tranID']) && !empty($_POST['tranID'])) ? $_POST['tranID'] : '';
+        $orderid = (isset($_POST['orderid']) && !empty($_POST['orderid'])) ? $_POST['orderid'] : '';
+        $status = (isset($_POST['status']) && !empty($_POST['status'])) ? $_POST['status'] : '';
+        $domain = (isset($_POST['domain']) && !empty($_POST['domain'])) ? $_POST['domain'] : '';
+        $amount = (isset($_POST['amount']) && !empty($_POST['amount'])) ? $_POST['amount'] : '';
+        $currency = (isset($_POST['currency']) && !empty($_POST['currency'])) ? $_POST['currency'] : '';
+        $appcode = (isset($_POST['appcode']) && !empty($_POST['appcode'])) ? $_POST['appcode'] : '';
+        $paydate = (isset($_POST['paydate']) && !empty($_POST['paydate'])) ? $_POST['paydate'] : '';
+        $skey = (isset($_POST['skey']) && !empty($_POST['skey'])) ? $_POST['skey'] : '';
 
         $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
         $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
