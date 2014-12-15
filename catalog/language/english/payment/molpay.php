@@ -8,4 +8,4 @@
  */
  
 // Text
-$_['text_title'] = 'MOLPay Malaysia Online Payment Gateway (Visa, MasterCard, Maybank2u, MEPS, FPX, etc )</br><img src="http://www.molpay.com/molpay_checkout.gif" alt="MOLPay Online Payment Gateway" title="MOLPay Malaysia Online Payment Gateway" style="border: 0px solid #EEEEEE;"/>';
+$_['text_title'] = 'MOLPay Malaysia Online Payment Gateway (Visa, MasterCard, Maybank2u, MEPS, FPX, etc )</br><img src="admin/view/image/payment/molpay.png" alt="MOLPay Online Payment Gateway" title="MOLPay Malaysia Online Payment Gateway" style="border: 0px solid #EEEEEE;"/>';
