@@ -24,7 +24,7 @@ class ControllerPaymentMolpay extends Controller {
 		$data['bill_mobile'] = $order_info['telephone'];
 		$data['country'] = $order_info['payment_iso_code_2'];
 		$data['currency'] = $order_info['currency_code'];
-		$data['vcode'] = md5($this->data['amount'].$this->config->get('molpay_mid').$this->data['orderid'].$this->config->get('molpay_vkey'));
+		$data['vcode'] = md5($data['amount'].$this->config->get('molpay_mid').$data['orderid'].$this->config->get('molpay_vkey'));
 
 		$products = $this->cart->getProducts();
             foreach ($products as $product) {
