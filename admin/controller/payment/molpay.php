@@ -37,6 +37,9 @@ class ControllerPaymentMolpay extends Controller {
 		$data['entry_mid'] = $this->language->get('entry_mid');
 		$data['entry_vkey'] = $this->language->get('entry_vkey');
 		$data['entry_order_status'] = $this->language->get('entry_order_status');
+		$data['entry_completed_status'] = $this->language->get('entry_completed_status');
+		$data['entry_pending_status'] = $this->language->get('entry_pending_status');
+		$data['entry_failed_status'] = $this->language->get('entry_failed_status');
 		$data['entry_geo_zone'] = $this->language->get('entry_geo_zone');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
@@ -101,6 +104,24 @@ class ControllerPaymentMolpay extends Controller {
 			$data['molpay_order_status_id'] = $this->request->post['molpay_order_status_id'];
 		} else {
 			$data['molpay_order_status_id'] = $this->config->get('molpay_order_status_id');
+		}
+		
+		if (isset($this->request->post['molpay_completed_status_id'])) {
+			$data['molpay_completed_status_id'] = $this->request->post['molpay_completed_status_id'];
+		} else {
+			$data['molpay_completed_status_id'] = $this->config->get('molpay_completed_status_id');
+		}
+		
+		if (isset($this->request->post['molpay_pending_status_id'])) {
+			$data['molpay_pending_status_id'] = $this->request->post['molpay_pending_status_id'];
+		} else {
+			$data['molpay_pending_status_id'] = $this->config->get('molpay_pending_status_id');
+		}
+		
+		if (isset($this->request->post['molpay_failed_status_id'])) {
+			$data['molpay_failed_status_id'] = $this->request->post['molpay_failed_status_id'];
+		} else {
+			$data['molpay_failed_status_id'] = $this->config->get('molpay_failed_status_id');
 		}
 
 		$this->load->model('localisation/order_status');

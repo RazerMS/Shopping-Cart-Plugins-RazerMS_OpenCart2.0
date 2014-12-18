@@ -57,6 +57,48 @@
               </select>
             </div>
           </div>
+		  <div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo $entry_completed_status; ?></label>
+			<div class="col-sm-10">
+			  <select name="molpay_completed_status_id" class="form-control">
+				<?php foreach ($order_statuses as $order_status) { ?>
+				<?php if ($order_status['order_status_id'] == $molpay_completed_status_id) { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
+				<?php } else { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
+				<?php } ?>
+				<?php } ?>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo $entry_pending_status; ?></label>
+			<div class="col-sm-10">
+			  <select name="molpay_pending_status_id" class="form-control">
+				<?php foreach ($order_statuses as $order_status) { ?>
+				<?php if ($order_status['order_status_id'] == $molpay_pending_status_id) { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
+				<?php } else { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
+				<?php } ?>
+				<?php } ?>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo $entry_failed_status; ?></label>
+			<div class="col-sm-10">
+			  <select name="molpay_failed_status_id" class="form-control">
+				<?php foreach ($order_statuses as $order_status) { ?>
+				<?php if ($order_status['order_status_id'] == $molpay_failed_status_id) { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
+				<?php } else { ?>
+				<option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
+				<?php } ?>
+				<?php } ?>
+			  </select>
+			</div>
+		  </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-geo-zone"><?php echo $entry_geo_zone; ?></label>
             <div class="col-sm-10">

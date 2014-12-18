@@ -24,6 +24,9 @@ $_['text_molpay']	     			= '<a onclick="window.open(\'http://www.molpay.com/\')
 $_['entry_mid']						= 'MOLPay Merchant ID';
 $_['entry_vkey']					= 'MOLPay Verify Key';
 $_['entry_order_status']			= 'Order Status';
+$_['entry_completed_status']		= 'Completed Status';
+$_['entry_pending_status']			= 'Pending Status';
+$_['entry_failed_status']			= 'Failed Status';
 $_['entry_geo_zone']				= 'Geo Zone';
 $_['entry_status']					= 'Status';
 $_['entry_sort_order']				= 'Sort Order';

@@ -90,14 +90,26 @@ class ControllerPaymentMolpay extends Controller {
 
         if ( $skey != $key1 ) 
             $status = -1 ;
+		
+		$order_status_id = $this->config->get('config_order_status_id');
         
         if ( $status == "00" )  {
-			$this->model_checkout_order->addOrderHistory($orderid , $this->config->get('molpay_order_status_id'));
+			$order_status_id = $this->config->get('molpay_completed_status_id');
+			
         } elseif( $status == "22" ) {
-            $this->model_checkout_order->addOrderHistory($orderid , $this->config->get('molpay_order_status_id'));		
+			$order_status_id = $this->config->get('molpay_pending_status_id');
+            		
         } else {
-            $this->model_checkout_order->addOrderHistory($orderid , $this->config->get('molpay_order_status_id'));         
+			$order_status_id = $this->config->get('molpay_failed_status_id');
+                     
         }
+		
+		if (!$order_info['order_status_id']) {
+			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+		} else {
+			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+		}
+		
 		echo '<html>' . "\n";
 		echo '<head>' . "\n";
 		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
@@ -139,15 +151,24 @@ class ControllerPaymentMolpay extends Controller {
             $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
             
             
-            if ( $status == "00" ) {                
-                $this->model_checkout_order->addOrderHistory($orderid , $this->config->get('molpay_order_status_id'));
-            } elseif ( $status ="22" ) { 
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'));
-            } elseif ( $status ="11" ) {
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'));
-            } else { 
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'));
-            }
+            $order_status_id = $this->config->get('config_order_status_id');
+        
+			if ( $status == "00" )  {
+				$order_status_id = $this->config->get('molpay_completed_status_id');
+				
+			} elseif( $status == "22" ) {
+				$order_status_id = $this->config->get('molpay_pending_status_id');
+						
+			} else {
+				$order_status_id = $this->config->get('molpay_failed_status_id');
+						 
+			}
+			
+			if (!$order_info['order_status_id']) {
+				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+			} else {
+				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+			}
         }
     }
 
@@ -180,18 +201,24 @@ class ControllerPaymentMolpay extends Controller {
             echo "CBTOKEN:MPSTATOK";
             $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
             
-            //Confirm the order If not created yet
-            //$this->model_checkout_order->confirm($this->request->post['orderid'], $this->config->get('molpay_order_status_id'));
-            
-            if ( $status == "00" ) {                
-                $this->model_checkout_order->addOrderHistory($orderid , $this->config->get('molpay_order_status_id'), 'MP Notification Return', false);
-            } elseif ( $status ="22" ) { 
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'), 'MP Notification Return', false);
-            } elseif ( $status ="11" ) {
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'), 'MP Notification Return', false);
-            } else { 
-                $this->model_checkout_order->addOrderHistory($orderid, $this->config->get('molpay_order_status_id'), 'MP Notification Return', false);
-            }
+            $order_status_id = $this->config->get('config_order_status_id');
+        
+			if ( $status == "00" )  {
+				$order_status_id = $this->config->get('molpay_completed_status_id');
+				
+			} elseif( $status == "22" ) {
+				$order_status_id = $this->config->get('molpay_pending_status_id');
+						
+			} else {
+				$order_status_id = $this->config->get('molpay_failed_status_id');
+						 
+			}
+			
+			if (!$order_info['order_status_id']) {
+				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+			} else {
+				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+			}
         }
     }
 }
