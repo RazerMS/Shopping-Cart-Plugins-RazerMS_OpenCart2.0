@@ -19,7 +19,7 @@ Curl
 
 Installations
 -------------
-1. Download or clone this repository. Copy all the file and paste it at your opencart root directory.  
+1. Download from dist['https://github.com/MOLPay/OpenCart2.0_Plugin/tree/master/dist'] folder or clone this repository. Copy all the file and paste it at your opencart root directory.  
 `<OpenCart_DIR>/admin/*`  
 `<OpenCart_DIR>/catalog/*`
 
