@@ -18,7 +18,7 @@ $_['heading_title']					= 'MOLPay Malaysia Online Payment Gateway';
 $_['text_payment']					= 'Payment';
 $_['text_success']					= 'Success: You have modified MOLPay Malaysia Online Payment Gateway account details!';
 $_['text_edit']                     = 'Edit MOLPay';
-$_['text_molpay']	     			= '<a onclick="window.open(\'http://www.molpay.com/\');" style="text-decoration:none;"><img src="view/image/payment/molpay.png" alt="MOLPay Online Payment Gateway" title="MOLPay Malaysia Online Payment Gateway" style="border: 0px solid #EEEEEE;" height=63 width=198/></a>';
+$_['text_molpay']	     			= '<a onclick="window.open(\'http://www.molpay.com/\');" style="text-decoration:none;"><img src="view/image/payment/molpay-logo.jpg" alt="MOLPay Online Payment Gateway" title="MOLPay Malaysia Online Payment Gateway" style="border: 0px solid #EEEEEE;" height=63 width=198/></a>';
 
 // Entry
 $_['entry_mid']						= 'MOLPay Merchant ID';
