@@ -31,7 +31,15 @@ Installations
 
 5. Fill in your MOLPay Merchant ID & MOLPay Verify Key into the respective fields.
 
-6. Save the configuration and done.
+6. Click on the MERCHANT PROFILE menu. Fill in return URL and Callback URL with your shopping cart URL.
+  
+  ``Return URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/return_ipn``
+
+  ``Callback URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/callback_ipn`` 
+  
+*Replace xxxxxxxxxxxxxx with your shoppingcart domain
+
+7. Save the configuration and done.
 
 Contribution
 ------------
