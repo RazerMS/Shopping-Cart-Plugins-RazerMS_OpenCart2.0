@@ -39,7 +39,7 @@ Installations
 
   ``Callback URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/callback_ipn`` 
   
-*Replace xxxxxxxxxxxxxx with your shoppingcart domain
+  *Replace xxxxxxxxxxxxxx with your shoppingcart domain
 
 7. Save the configuration and done.
 
