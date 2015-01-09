@@ -35,6 +35,8 @@ Installations
   
   ``Return URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/return_ipn``
 
+  ``Notification URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/notification_ipn``
+
   ``Callback URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/callback_ipn`` 
   
 *Replace xxxxxxxxxxxxxx with your shoppingcart domain
