@@ -6,7 +6,11 @@ MOLPay Plugin for OpenCart Shopping Cart develop by MOLPay technical team.
 
 Supported version
 -----------------
-OpenCart version 2.0(Tested)
+New Update
+
+- Opencart Seamless Plugin
+
+- OpenCart version 2.0(Tested)
 
 Notes
 -----
