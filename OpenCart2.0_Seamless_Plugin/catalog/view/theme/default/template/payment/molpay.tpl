@@ -16,15 +16,45 @@
 <div class="text-center">
     <h3><u>Pay via</u><img src="admin/view/image/payment/molpay-logo.jpg">:</h3>
 	<br/>
+
+	<?php if($visa): ?>
 	<button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="credit" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-visa-master.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
+	<?php if($mb2u): ?>
 	<button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="maybank2u" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-maybank.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
+	<?php if($cimbclicks): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="cimbclicks" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-cimb.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
+	<?php if($hlb): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="hlb" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-hongleong.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
+	<?php if($rhbnow): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="rhb" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-rhb.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
 	<!--<button type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="cash-711" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>">Pay via Cash 711</button>-->
+
+	<?php if($amonline): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="amb" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-ambank.png" width="120px" height="60px"/></button>
+	<?php endif; ?>
+
 	<!--<button type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="affinonline" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>">Pay via AffinOnline</button>-->
+
+	<?php if($fpx): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="fpx" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-mepsfpx.png" width="120px" height="60px"/>	</button>
+	<?php endif; ?>
+
+	<?php if($pbebank): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="pbb" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-publicbank.png" width="120px" height="60px"/>	</button>
+	<?php endif; ?>
+
+	<?php if($seveneleven): ?>
 	<button class="btn btn-default" type="button" id="myPay"  data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="cash-711" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>"><img src="admin/view/image/payment/op-7e.png" width="120px" height="60px"/>	</button>
+	<?php endif; ?>
+	
 </div>
