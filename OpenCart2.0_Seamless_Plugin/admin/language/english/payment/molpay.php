@@ -31,6 +31,18 @@ $_['entry_geo_zone']				= 'Geo Zone';
 $_['entry_status']					= 'Status';
 $_['entry_sort_order']				= 'Sort Order';
 
+// Channel
+$_['visa']							= 'Credit Card';
+$_['mb2u']							= 'Maybank2U';
+$_['cimbclicks']					= 'CIMB Clicks';
+$_['hlb']							= 'Hong Leong Connect';
+$_['rhbnow']						= 'RHB Now';
+$_['amonline']						= 'AmOnline';
+$_['fpx']							= 'FPX';
+$_['pbebank']						= 'PBE Bank';
+$_['seveneleven']					= '7 Eleven';
+
+
 // Help
 $_['help_vkey']						= 'Please refer to your MOLPay Merchant Profile for this key.';
 
