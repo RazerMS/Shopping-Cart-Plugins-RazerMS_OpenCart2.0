@@ -44,6 +44,18 @@ class ControllerPaymentMolpay extends Controller {
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
+		//Channel
+		$data['visa'] = $this->language->get('visa');
+		$data['mb2u'] = $this->language->get('mb2u');
+		$data['cimbclicks'] = $this->language->get('cimbclicks');
+		$data['hlb'] = $this->language->get('hlb');
+		$data['rhbnow'] = $this->language->get('rhbnow');
+		$data['amonline'] = $this->language->get('amonline');
+		$data['fpx'] = $this->language->get('fpx');
+		$data['pbebank'] = $this->language->get('pbebank');
+		$data['seveneleven'] = $this->language->get('7eleven');
+
+
 		$data['help_vkey'] = $this->language->get('help_vkey');
 
 		$data['button_save'] = $this->language->get('button_save');
@@ -93,7 +105,6 @@ class ControllerPaymentMolpay extends Controller {
 		} else {
 			$data['molpay_mid'] = $this->config->get('molpay_mid');
 		}
-
 		if (isset($this->request->post['molpay_vkey'])) {
 			$data['molpay_vkey'] = $this->request->post['molpay_vkey'];
 		} else {
@@ -148,6 +159,61 @@ class ControllerPaymentMolpay extends Controller {
 			$data['molpay_sort_order'] = $this->request->post['molpay_sort_order'];
 		} else {
 			$data['molpay_sort_order'] = $this->config->get('molpay_sort_order');
+		}
+
+		//Channel
+		if (isset($this->request->post['molpay_visa_status'])) {
+			$data['molpay_visa_status'] = $this->request->post['molpay_visa_status'];
+		} else {
+			$data['molpay_visa_status'] = $this->config->get('molpay_visa_status');
+		}
+
+		if (isset($this->request->post['molpay_mb2u_status'])) {
+			$data['molpay_mb2u_status'] = $this->request->post['molpay_mb2u_status'];
+		} else {
+			$data['molpay_mb2u_status'] = $this->config->get('molpay_mb2u_status');
+		}
+
+		if (isset($this->request->post['molpay_cimbclicks_status'])) {
+			$data['molpay_cimbclicks_status'] = $this->request->post['molpay_cimbclicks_status'];
+		} else {
+			$data['molpay_cimbclicks_status'] = $this->config->get('molpay_cimbclicks_status');
+		}
+
+		if (isset($this->request->post['molpay_hlb_status'])) {
+			$data['molpay_hlb_status'] = $this->request->post['molpay_hlb_status'];
+		} else {
+			$data['molpay_hlb_status'] = $this->config->get('molpay_hlb_status');
+		}
+
+		if (isset($this->request->post['molpay_rhbnow_status'])) {
+			$data['molpay_rhbnow_status'] = $this->request->post['molpay_rhbnow_status'];
+		} else {
+			$data['molpay_rhbnow_status'] = $this->config->get('molpay_rhbnow_status');
+		}
+
+		if (isset($this->request->post['molpay_amonline_status'])) {
+			$data['molpay_amonline_status'] = $this->request->post['molpay_amonline_status'];
+		} else {
+			$data['molpay_amonline_status'] = $this->config->get('molpay_amonline_status');
+		}
+
+		if (isset($this->request->post['molpay_fpx_status'])) {
+			$data['molpay_fpx_status'] = $this->request->post['molpay_fpx_status'];
+		} else {
+			$data['molpay_fpx_status'] = $this->config->get('molpay_fpx_status');
+		}
+
+		if (isset($this->request->post['molpay_pbebank_status'])) {
+			$data['molpay_pbebank_status'] = $this->request->post['molpay_pbebank_status'];
+		} else {
+			$data['molpay_pbebank_status'] = $this->config->get('molpay_pbebank_status');
+		}
+
+		if (isset($this->request->post['molpay_seveneleven_status'])) {
+			$data['molpay_seveneleven_status'] = $this->request->post['molpay_seveneleven_status'];
+		} else {
+			$data['molpay_seveneleven_status'] = $this->config->get('molpay_seveneleven_status');
 		}
 
 		$data['header'] = $this->load->controller('common/header');
