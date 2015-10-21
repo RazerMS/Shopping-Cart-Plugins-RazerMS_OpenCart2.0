@@ -25,6 +25,20 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-molpay" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_status" id="input-status" class="form-control">
+                <?php if ($molpay_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-mid"><?php echo $entry_mid; ?></label>
             <div class="col-sm-10">
@@ -115,10 +129,16 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+            <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
             <div class="col-sm-10">
-              <select name="molpay_status" id="input-status" class="form-control">
-                <?php if ($molpay_status) { ?>
+              <input type="text" name="molpay_sort_order" value="<?php echo $molpay_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-visa-status"><?php echo $visa; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_visa_status" id="input-visa-status" class="form-control">
+                <?php if ($molpay_visa_status) { ?>
                 <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
                 <option value="0"><?php echo $text_disabled; ?></option>
                 <?php } else { ?>
@@ -129,9 +149,115 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
+            <label class="col-sm-2 control-label" for="input-mb2u-status"><?php echo $mb2u; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="molpay_sort_order" value="<?php echo $molpay_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
+              <select name="molpay_mb2u_status" id="input-mb2u-status" class="form-control">
+                <?php if ($molpay_mb2u_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-cimbclicks-status"><?php echo $cimbclicks; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_cimbclicks_status" id="input-cimbclicks-status" class="form-control">
+                <?php if ($molpay_cimbclicks_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-hlb-status"><?php echo $hlb; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_hlb_status" id="input-hlb-status" class="form-control">
+                <?php if ($molpay_hlb_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-rhbnow-status"><?php echo $rhbnow; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_rhbnow_status" id="input-rhbnow-status" class="form-control">
+                <?php if ($molpay_rhbnow_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-amonline-status"><?php echo $amonline; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_amonline_status" id="input-amonline-status" class="form-control">
+                <?php if ($molpay_amonline_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-fpx-status"><?php echo $fpx; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_fpx_status" id="input-fpx-status" class="form-control">
+                <?php if ($molpay_fpx_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-pbebank-status"><?php echo $pbebank; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_pbebank_status" id="input-pbebank-status" class="form-control">
+                <?php if ($molpay_pbebank_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-seveneleven-status"><?php echo $seveneleven; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_seveneleven_status" id="input-seveneleven-status" class="form-control">
+                <?php if ($molpay_seveneleven_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
             </div>
           </div>
         </form>
