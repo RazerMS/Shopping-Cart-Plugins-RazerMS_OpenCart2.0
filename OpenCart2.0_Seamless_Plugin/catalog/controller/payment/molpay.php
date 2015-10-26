@@ -15,16 +15,37 @@ class ControllerPaymentMolpay extends Controller {
 
 		$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 
+        if (isset($this->session->data['guest'])) 
+        {
+            $email = $this->session->data['guest']['email'];
+            $telephone = $this->session->data['guest']['telephone'];
+        }
+        else
+        {
+            $email = $this->customer->getEmail();
+            $telephone = $this->customer->getTelephone();
+        }
+
 		$data['action'] = 'https://www.onlinepayment.com.my/MOLPay/pay/'.$this->config->get('molpay_mid').'/';
 		$data['mid']= $this->config->get('molpay_mid');
 		$data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
 		$data['orderid'] = $this->session->data['order_id'];
 		$data['bill_name'] = $order_info['payment_firstname'] . ' ' . $order_info['payment_lastname'];
-		$data['bill_email'] = $order_info['email'];
-		$data['bill_mobile'] = $order_info['telephone'];
+		$data['bill_email'] = $email;
+		$data['bill_mobile'] = $telephone;
 		$data['country'] = $order_info['payment_iso_code_2'];
 		$data['currency'] = $order_info['currency_code'];
 		$data['vcode'] = md5($data['amount'].$this->config->get('molpay_mid').$data['orderid'].$this->config->get('molpay_vkey'));
+
+        //Load all channel from language file.
+        $this->load->language('payment/molpay');
+        $channel_list = $this->language->get('channel_list');
+
+        foreach($channel_list as $key=>$val)
+        {
+            $inGet = 'molpay_'.$key.'_status';
+            $data['channel_list'][$key] = $this->config->get($inGet);
+        }
 
 		$products = $this->cart->getProducts();
             foreach ($products as $product) {
