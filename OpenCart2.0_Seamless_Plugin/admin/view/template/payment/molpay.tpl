@@ -25,6 +25,20 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-molpay" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_status" id="input-status" class="form-control">
+                <?php if ($molpay_status) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-mid"><?php echo $entry_mid; ?></label>
             <div class="col-sm-10">
@@ -115,24 +129,43 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
-            <div class="col-sm-10">
-              <select name="molpay_status" id="input-status" class="form-control">
-                <?php if ($molpay_status) { ?>
-                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                <option value="0"><?php echo $text_disabled; ?></option>
-                <?php } else { ?>
-                <option value="1"><?php echo $text_enabled; ?></option>
-                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-                <?php } ?>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
             <div class="col-sm-10">
               <input type="text" name="molpay_sort_order" value="<?php echo $molpay_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
             </div>
+          </div>
+          <br>
+          <div style="border-top: 3px dotted #515151; border-bottom: 3px dotted #515151; box-shadow: inset 0 -1px 0 0 #515151, inset 0 1px 0 0 #515151, 0 1px 0 0 #515151, 0 -1px 0 0 #515151; margin-bottom: 25px; padding: 20px;">
+          <h3 class="text-center">Enable/Disable Channel From Here:</h3>
+          <br>
+          <?php foreach($channel_list as $key=>$val): ?>
+          <?php $inStatus = 'molpay_'.$key.'_status'; ?>
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-<?php echo $key; ?>-status"><?php echo $val; ?></label>
+            <div class="col-sm-10">
+              <select name="molpay_<?php echo $key; ?>_status" id="input-<?php echo $key; ?>-status" class="form-control">
+              <?php if(!empty($molpay_mid)): ?>
+
+                <?php if ($data[$inStatus]) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+                <?php } else { ?>
+                  <option value="1"><?php echo $text_enabled; ?></option>
+                  <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                <?php } ?>
+
+              <?php else: ?>
+                
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+
+              <?php endif; ?>
+              </select>
+            </div>
+          </div>
+          
+          <?php endforeach; ?>
           </div>
         </form>
 		<div>
