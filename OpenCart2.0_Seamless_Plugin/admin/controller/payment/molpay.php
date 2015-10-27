@@ -44,6 +44,9 @@ class ControllerPaymentMolpay extends Controller {
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
+		//Load all channel language file.
+		$data['channel_list'] = $this->language->get('channel_list');
+
 		$data['help_vkey'] = $this->language->get('help_vkey');
 
 		$data['button_save'] = $this->language->get('button_save');
@@ -93,7 +96,6 @@ class ControllerPaymentMolpay extends Controller {
 		} else {
 			$data['molpay_mid'] = $this->config->get('molpay_mid');
 		}
-
 		if (isset($this->request->post['molpay_vkey'])) {
 			$data['molpay_vkey'] = $this->request->post['molpay_vkey'];
 		} else {
@@ -148,6 +150,20 @@ class ControllerPaymentMolpay extends Controller {
 			$data['molpay_sort_order'] = $this->request->post['molpay_sort_order'];
 		} else {
 			$data['molpay_sort_order'] = $this->config->get('molpay_sort_order');
+		}
+
+		//Load the data into variable
+		
+		foreach($data['channel_list'] as $key=>$val)
+		{
+			if (isset($this->request->post['molpay_'.$key.'_status'])) 
+			{
+				$data['molpay_'.$key.'_status'] = $this->request->post['molpay_'.$key.'_status'];
+			} 
+			else 
+			{
+				$data['molpay_'.$key.'_status'] = $this->config->get('molpay_'.$key.'_status');
+			}
 		}
 
 		$data['header'] = $this->load->controller('common/header');
