@@ -32,7 +32,7 @@ $_['entry_status']					= 'Status';
 $_['entry_sort_order']				= 'Sort Order';
 
 // Channel
-$_['channel_list']					= 	[
+$_['channel_list']					= 	array(
 											'affinonline' 	=> 'Affin Bank(Affin Online)',
 											'amb' 			=> 'Am Bank (Am Online)',
 											'bankislam' 	=> 'Bank Islam',
@@ -52,7 +52,7 @@ $_['channel_list']					= 	[
 											'credit3' 		=> 'Multi Currency Credit Card',
 											'NGANLUONG' 	=> 'NGANLUONG',
 											'crossborder' 	=> 'Credit Card/ Debit Card (PayVision)'
-										];
+										);
 
 // Help
 $_['help_vkey']						= 'Please refer to your MOLPay Merchant Profile for this key.';
