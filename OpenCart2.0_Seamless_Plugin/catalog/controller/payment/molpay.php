@@ -56,11 +56,24 @@ class ControllerPaymentMolpay extends Controller {
 
 		$data['returnurl'] = $this->url->link('payment/molpay/return_ipn', '', 'SSL');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/molpay.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/payment/molpay.tpl', $data);
-		} else {
-			return $this->load->view('default/template/payment/molpay.tpl', $data);
-		}
+		$version_oc = substr(VERSION,0,3);
+
+	        if($version_oc == "2.2")
+	        {
+	            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/molpay.tpl')) {
+	            return $this->load->view($this->config->get('config_template') . '/template/payment/molpay.tpl', $data);
+	            } else {
+	                return $this->load->view('payment/molpay.tpl', $data);
+	            }
+	        }
+	        else
+	        {
+	            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/molpay.tpl')) {
+	            return $this->load->view($this->config->get('config_template') . '/template/payment/molpay.tpl', $data);
+	            } else {
+	                return $this->load->view('default/template/payment/molpay.tpl', $data);
+	            }
+	        }
 	}
 
 	public function return_ipn() {
