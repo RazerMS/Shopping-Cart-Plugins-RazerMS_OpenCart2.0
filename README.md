@@ -10,7 +10,7 @@ New Update
 
 - Opencart Seamless Plugin
 
-- OpenCart version 2.0(Tested)
+- OpenCart version 2.x
 
 Notes
 -----
