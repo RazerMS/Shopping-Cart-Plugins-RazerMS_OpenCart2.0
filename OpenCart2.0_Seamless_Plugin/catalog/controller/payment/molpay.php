@@ -144,7 +144,10 @@ class ControllerPaymentMolpay extends Controller {
 			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
 		}
 		
-		echo '<html>' . "\n";
+	$successStatus = array('00','22');
+       if(in_array($status,$successStatus))
+       {
+       		echo '<html>' . "\n";
 		echo '<head>' . "\n";
 		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
 		echo '</head>' . "\n";
@@ -152,7 +155,22 @@ class ControllerPaymentMolpay extends Controller {
 		echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
 		echo '</body>' . "\n";
 		echo '</html>' . "\n";
-		exit();
+       
+       } else {
+       		
+       	 	echo '<html>' . "\n";
+		echo '<head>' . "\n";
+		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/failure') . '">' . "\n";
+		echo '</head>' . "\n";
+		echo '<body>' . "\n";
+		echo '  <p>Please follow <a href="' . $this->url->link('checkout/failure') . '">link</a>!</p>' . "\n";
+		echo '</body>' . "\n";
+		echo '</html>' . "\n";
+       	
+       }
+		
+		
+	exit();
     }
      
     /*****************************************************
