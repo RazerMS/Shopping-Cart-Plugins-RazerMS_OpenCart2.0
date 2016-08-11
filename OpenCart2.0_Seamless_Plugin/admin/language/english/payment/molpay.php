@@ -51,7 +51,10 @@ $_['channel_list']					= 	array(
 											'Point-BCard' 	=> 'Bcard points',
 											'credit3' 		=> 'Multi Currency Credit Card',
 											'NGANLUONG' 	=> 'NGANLUONG',
-											'crossborder' 	=> 'Credit Card/ Debit Card (PayVision)'
+											'crossborder' 	=> 'Credit Card/ Debit Card (PayVision)',
+											'PEXPLUS' 	=> 'PEx+',
+											'jompay' 	=> 'JOMPay',
+											'Cash-Esapay' 	=> 'Cash Esapay'
 										);
 
 // Help
