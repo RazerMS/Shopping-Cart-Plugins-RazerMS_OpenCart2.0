@@ -1,7 +1,8 @@
-![Screenshot for Opencart2.0 Seamless Plugin](https://cloud.githubusercontent.com/assets/6263224/5717583/333763e0-9b3e-11e4-8cbc-214294083ddf.jpg)
-
 MOLPay OpenCart Plugin v2.0
 ==============================
+![MOLPay Technical Teams](https://github.com/MOLPay/Prestashop_Plugin/wiki/images/molpay-developer.jpg)
+![Screenshot for Opencart2.0 Seamless Plugin](https://cloud.githubusercontent.com/assets/6263224/5717583/333763e0-9b3e-11e4-8cbc-214294083ddf.jpg)
+
 MOLPay Plugin for OpenCart Shopping Cart develop by MOLPay technical team.
 
 Supported version
@@ -11,6 +12,7 @@ New Update
 - Opencart Seamless Plugin
 
 - OpenCart version 2.x
+- <a href="https://github.com/MOLPay/OpenCart2.0_Plugin/releases">OpenCart 2.3.0.2 Plugin</a>
 
 Notes
 -----
