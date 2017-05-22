@@ -12,7 +12,7 @@
 
   <input type="hidden" name="bill_desc" value="<?php echo implode("\n",$prod_desc);?>" />
 </form>
-<script src="https://www.onlinepayment.com.my/MOLPay/API/seamless/3.8/js/MOLPay_seamless.deco.js"></script>
+<script src="https://www.onlinepayment.com.my/MOLPay/API/seamless/latest/js/MOLPay_seamless.deco.js"></script>
 <div class="text-center">
     <h3><u>Pay via</u><img src="admin/view/image/payment/molpay-logo.jpg">:</h3>
 	<br/>
