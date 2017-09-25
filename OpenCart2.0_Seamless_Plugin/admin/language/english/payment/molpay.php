@@ -54,7 +54,8 @@ $_['channel_list']					= 	array(
 											'crossborder' 	=> 'Credit Card/ Debit Card (PayVision)',
 											'PEXPLUS' 	=> 'PEx+',
 											'jompay' 	=> 'JOMPay',
-											'Cash-Esapay' 	=> 'Cash Esapay'
+											'Cash-Esapay' 	=> 'Cash Esapay',
+											'alipay'	=> 'Alipay.com'
 										);
 
 // Help
