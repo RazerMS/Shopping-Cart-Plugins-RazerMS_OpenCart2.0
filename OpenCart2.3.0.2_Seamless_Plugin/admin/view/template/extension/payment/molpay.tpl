@@ -71,7 +71,7 @@
             <div class="col-sm-10">
               <select name="molpay_type" id="input-type" class="form-control">
               <?
-              $type = array("https://www.onlinepayment.com.my/"=> "Production", "https://www.sandbox.molpay.com/"=>"Sandbox");
+              $type = array("https://www.onlinepayment.com.my/"=> "Production", "https://sandbox.molpay.com/"=>"Sandbox");
               foreach($type as $m=>$n){?>
                  <option value="<?=$m?>" <?=($molpay_type == $m)? 'selected': ''?>> <?=$n?></option>
               <?}?>
