@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-vkey"><span data-toggle="tooltip" title="<?php echo $help_vkey; ?>"><?php echo $entry_skey; ?></span></label>
+            <label class="col-sm-2 control-label" for="input-skey"><span data-toggle="tooltip" title="<?php echo $help_skey; ?>"><?php echo $entry_skey; ?></span></label>
             <div class="col-sm-10">
               <input type="text" name="molpay_skey" value="<?php echo $molpay_skey; ?>" placeholder="<?php echo $entry_skey; ?>" id="input-skey" class="form-control" />
               <?php if ($error_skey) { ?>
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-vkey"><span data-toggle="tooltip" title="<?php echo $help_vkey; ?>"><?php echo $entry_vkey; ?></span></label>
+            <label class="col-sm-2 control-label" for="input-type"><span data-toggle="tooltip" title="<?php echo $help_type; ?>"><?php echo $entry_type; ?></span></label>
             <div class="col-sm-10">
               <select name="molpay_type" id="input-type" class="form-control">
               <?
