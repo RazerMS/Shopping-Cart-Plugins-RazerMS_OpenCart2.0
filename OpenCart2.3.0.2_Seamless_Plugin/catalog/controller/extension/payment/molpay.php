@@ -36,6 +36,7 @@ class ControllerExtensionPaymentMolpay extends Controller {
 		$data['country'] = $order_info['payment_iso_code_2'];
 		$data['currency'] = $order_info['currency_code'];
 		$data['vcode'] = md5($data['amount'].$this->config->get('molpay_mid').$data['orderid'].$this->config->get('molpay_vkey'));
+		$data['js'] = $this->config->get('molpay_type').'MOLPay/API/seamless/latest/js/MOLPay_seamless.deco.js';
 
         //Load all channel from language file.
         $this->load->language('extension/payment/molpay');
