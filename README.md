@@ -12,7 +12,6 @@ New Update
 - Opencart Seamless Plugin
 
 - OpenCart version 2.x
-- <a href="https://github.com/MOLPay/OpenCart2.0_Plugin/releases">OpenCart 2.3.0.2 Plugin</a>
 
 Notes
 -----
