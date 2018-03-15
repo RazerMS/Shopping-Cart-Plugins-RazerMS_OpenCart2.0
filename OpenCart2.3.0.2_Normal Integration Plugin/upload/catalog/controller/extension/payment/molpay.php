@@ -64,8 +64,8 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                 $postdata   = implode("&",$postData);
                 
                 $url = $this->config->get('molpay_type')."MOLPay/API/chkstat/returnipn.php";
-                
-		$ch = curl_init();
+
+                $ch = curl_init();
                 curl_setopt($ch, CURLOPT_POST           , 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata);
                 curl_setopt($ch, CURLOPT_URL            , $url);
@@ -104,14 +104,28 @@ class ControllerExtensionPaymentMOLPay extends Controller {
                         $this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
                 }
 
-                echo '<html>' . "\n";
-                echo '<head>' . "\n";
-                echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
-                echo '</head>' . "\n";
-                echo '<body>' . "\n";
-                echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
-                echo '</body>' . "\n";
-                echo '</html>' . "\n";
+                //Fixing always redirect back to Order Success Page for any transaction
+                $successStatus = array('00','22');
+                if( in_array($status,$successStatus) ) {
+                    echo '<html>' . "\n";
+                    echo '<head>' . "\n";
+                    echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
+                    echo '</head>' . "\n";
+                    echo '<body>' . "\n";
+                    echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
+                    echo '</body>' . "\n";
+                    echo '</html>' . "\n";
+                }
+                else {
+                    echo '<html>' . "\n";
+                    echo '<head>' . "\n";
+                    echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/failure') . '">' . "\n";
+                    echo '</head>' . "\n";
+                    echo '<body>' . "\n";
+                    echo '  <p>Please follow <a href="' . $this->url->link('checkout/failure') . '">link</a>!</p>' . "\n";
+                    echo '</body>' . "\n";
+                    echo '</html>' . "\n";                    
+                }
                 exit();
         }
 
