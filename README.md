@@ -38,7 +38,7 @@ Installations
 
 5. Fill in your MOLPay Merchant ID & MOLPay Verify Key into the respective fields.
 
-6. Log in your merchant account at https://portal.molpay.com. Click Transaction > Transaction Settings > 3 Endpoint setting.
+6. Log in your merchant account at https://portal.molpay.com. Click Transaction > Transaction Settings > Endpoint setting.
 
 7. Fill in Callback URL with your shopping cart URL.
 
