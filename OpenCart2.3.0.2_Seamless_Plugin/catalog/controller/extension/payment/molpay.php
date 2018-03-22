@@ -144,34 +144,29 @@ class ControllerExtensionPaymentMolpay extends Controller {
 		} else {
 			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
 		}
-		
-	$successStatus = array('00','22');
-       if(in_array($status,$successStatus))
-       {
+
+        $successStatus = array('00','22');
+        if( in_array($status,$successStatus) ) {
        		echo '<html>' . "\n";
-		echo '<head>' . "\n";
-		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
-		echo '</head>' . "\n";
-		echo '<body>' . "\n";
-		echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
-		echo '</body>' . "\n";
-		echo '</html>' . "\n";
-       
-       } else {
-       		
-       	 	echo '<html>' . "\n";
-		echo '<head>' . "\n";
-		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/failure') . '">' . "\n";
-		echo '</head>' . "\n";
-		echo '<body>' . "\n";
-		echo '  <p>Please follow <a href="' . $this->url->link('checkout/failure') . '">link</a>!</p>' . "\n";
-		echo '</body>' . "\n";
-		echo '</html>' . "\n";
-       	
-       }
-		
-		
-	exit();
+            echo '<head>' . "\n";
+    		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
+    		echo '</head>' . "\n";
+	       	echo '<body>' . "\n";
+            echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
+    		echo '</body>' . "\n";
+        	echo '</html>' . "\n";
+        } 
+        else {
+            echo '<html>' . "\n";
+            echo '<head>' . "\n";
+    		echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/failure') . '">' . "\n";
+    		echo '</head>' . "\n";
+    		echo '<body>' . "\n";
+    		echo '  <p>Please follow <a href="' . $this->url->link('checkout/failure') . '">link</a>!</p>' . "\n";
+    		echo '</body>' . "\n";
+    		echo '</html>' . "\n";   	
+        }
+	   exit();
     }
      
     /*****************************************************
