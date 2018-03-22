@@ -42,13 +42,13 @@ Installations
 
 7. Fill in Callback URL with your shopping cart URL.
 
-       ``Return URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway``
+      ``Return URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway``
   
-        ``Notification URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
+      ``Notification URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
 
-        ``Callback URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
+      ``Callback URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
   
-*Replace `shoppingcarturl` with your shoppingcart domain
+      *Replace `shoppingcarturl` with your shoppingcart domain
 
 8. Save the configuration and done.
 
