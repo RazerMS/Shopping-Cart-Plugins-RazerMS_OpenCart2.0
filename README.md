@@ -42,7 +42,7 @@ Installations
 
 7. Fill in Callback URL with your shopping cart URL.
 
-      ``Return URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway``
+  ``Return URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway``
   
       ``Notification URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
 
