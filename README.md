@@ -40,13 +40,13 @@ Installations
 
 6. Log in your merchant account at https://portal.molpay.com. Click Transaction > Transaction Settings > Endpoint setting.
 
-7. Fill in Callback URL with your shopping cart URL.
+7. Click on the MERCHANT PROFILE menu. Fill in return URL and Callback URL with your shopping cart URL.
 
-``Return URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway``
+``Return URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/return_ipn``
+
+``Notification URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/notification_ipn``
   
-``Notification URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
-
-``Callback URL : http://shoppingcarturl/?wc-api=WC_Molpay_Gateway`` 
+``Callback URL : http://xxxxxxxxxxxxxx/index.php?route=payment/molpay/callback_ipn`` 
 
 *Replace `shoppingcarturl` with your shoppingcart domain
 
