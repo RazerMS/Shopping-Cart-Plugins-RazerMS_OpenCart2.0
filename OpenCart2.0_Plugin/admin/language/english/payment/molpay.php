@@ -4,12 +4,12 @@
  * 
  * @package Payment Gateway
  * @author MOLPay Technical Team <technical@molpay.com>
- * @version 2.0
+ * @version 2.0.1
  */
  
  // Versioning
 $_['molpay_ptype'] = "OpenCart";
-$_['molpay_pversion'] = "2.0";
+$_['molpay_pversion'] = "2.0.1";
 
 // Heading
 $_['heading_title']					= 'MOLPay Malaysia Online Payment Gateway';
@@ -23,7 +23,8 @@ $_['text_molpay']	     			= '<a onclick="window.open(\'http://www.molpay.com/\')
 // Entry
 $_['entry_mid']						= 'MOLPay Merchant ID';
 $_['entry_vkey']					= 'MOLPay Verify Key';
-$_['entry_order_status']			= 'Order Status';
+$_['entry_skey']                    = 'MOLPay Secret Key';
+$_['entry_type']                    = 'MOLPay Account Type';
 $_['entry_completed_status']		= 'Completed Status';
 $_['entry_pending_status']			= 'Pending Status';
 $_['entry_failed_status']			= 'Failed Status';
@@ -33,10 +34,14 @@ $_['entry_sort_order']				= 'Sort Order';
 
 // Help
 $_['help_vkey']						= 'Please refer to your MOLPay Merchant Profile for this key.';
-
+$_['help_skey']                     = 'Please refer to your MOLPay Merchant Profile for this key.';
+$_['help_type']                     = 'Please choose your account type (Sandbox/Production)';
+$_['type'] 							= array(1=> "Production", 2=>"Sandbox");
 // Error
 $_['error_permission']				= 'Warning: You do not have permission to modify MOLPay Malaysia Online Payment Gateway!';
 $_['error_mid']						= '<b>MOLPay Merchant ID</b> Required!';
 $_['error_vkey']					= '<b>MOLPay Verify Key</b> Required!';
+$_['error_skey']					= '<b>MOLPay Secret Key</b> Required!';
+$_['error_type']					= '<b>MOLPay Account Type</b> Required!';
 $_['error_settings']       			= 'MOLPay merchant id and verify key mismatch, contact support@molpay.com to assist.';
 $_['error_status']          		= 'Unable to connect MOLPay API.';

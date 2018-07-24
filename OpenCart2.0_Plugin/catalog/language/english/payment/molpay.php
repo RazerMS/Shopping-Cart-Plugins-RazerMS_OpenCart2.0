@@ -4,7 +4,7 @@
  * 
  * @package Payment Gateway
  * @author MOLPay Technical Team <technical@molpay.com>
- * @version 2.0
+ * @version 2.0.1
  */
  
 // Text

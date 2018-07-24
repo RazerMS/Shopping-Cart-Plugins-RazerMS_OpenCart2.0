@@ -1,4 +1,12 @@
 <?php
+/**
+ * MOLPay OpenCart Plugin
+ * 
+ * @package Payment Gateway
+ * @author MOLPay Technical Team <technical@molpay.com>
+ * @version 2.0.1
+ */
+ 
 class ModelPaymentMolpay extends Model {
 	public function getMethod($address, $total) {
 		$this->load->language('payment/molpay');
