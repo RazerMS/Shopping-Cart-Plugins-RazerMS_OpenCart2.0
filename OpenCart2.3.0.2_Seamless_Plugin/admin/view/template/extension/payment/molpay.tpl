@@ -171,7 +171,7 @@
               <select name="molpay_<?php echo $key; ?>_status" id="input-<?php echo $key; ?>-status" class="form-control">
               <?php if(!empty($molpay_mid)): ?>
 
-                <?php if ( ${$inStatus} ) { ?>
+                <?php if ($dbchannel_list[$inStatus]) { ?>
                 <option value="1" class="greencolor" selected="selected"><?php echo $text_enabled; ?></option>
                 <option value="0" class="redcolor" ><?php echo $text_disabled; ?></option>
                 <?php } else { ?>

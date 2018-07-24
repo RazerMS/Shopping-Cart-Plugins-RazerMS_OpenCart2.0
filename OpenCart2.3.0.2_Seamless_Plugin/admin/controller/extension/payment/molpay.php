@@ -187,11 +187,11 @@ class ControllerExtensionPaymentMolpay extends Controller {
 		{
 			if (isset($this->request->post['molpay_'.$key.'_status'])) 
 			{
-				$data['molpay_'.$key.'_status'] = $this->request->post['molpay_'.$key.'_status'];
+				$data["dbchannel_list"]['molpay_'.$key.'_status'] = $this->request->post['molpay_'.$key.'_status'];
 			} 
 			else 
 			{
-				$data['molpay_'.$key.'_status'] = $this->config->get('molpay_'.$key.'_status');
+				$data["dbchannel_list"]['molpay_'.$key.'_status'] = $this->config->get('molpay_'.$key.'_status');
 			}
 		}
 
