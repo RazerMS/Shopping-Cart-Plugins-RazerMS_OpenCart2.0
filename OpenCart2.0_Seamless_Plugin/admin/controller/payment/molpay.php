@@ -36,7 +36,8 @@ class ControllerPaymentMolpay extends Controller {
 
 		$data['entry_mid'] = $this->language->get('entry_mid');
 		$data['entry_vkey'] = $this->language->get('entry_vkey');
-		$data['entry_order_status'] = $this->language->get('entry_order_status');
+		$data['entry_skey'] = $this->language->get('entry_skey');
+		$data['entry_type'] = $this->language->get('entry_type');
 		$data['entry_completed_status'] = $this->language->get('entry_completed_status');
 		$data['entry_pending_status'] = $this->language->get('entry_pending_status');
 		$data['entry_failed_status'] = $this->language->get('entry_failed_status');
@@ -48,7 +49,9 @@ class ControllerPaymentMolpay extends Controller {
 		$data['channel_list'] = $this->language->get('channel_list');
 
 		$data['help_vkey'] = $this->language->get('help_vkey');
-
+		$data['help_skey'] = $this->language->get('help_skey');
+		$data['help_type'] = $this->language->get('help_type');
+		
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
 
@@ -70,6 +73,18 @@ class ControllerPaymentMolpay extends Controller {
 			$data['error_vkey'] = '';
 		}
 
+		if (isset($this->error['skey'])) {
+			$data['error_skey'] = $this->error['skey'];
+		} else {
+			$data['error_skey'] = '';
+		}
+		
+		if (isset($this->error['type'])) {
+			$data['error_type'] = $this->error['type'];
+		} else {
+			$data['error_type'] = '';
+		}
+		
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -102,10 +117,16 @@ class ControllerPaymentMolpay extends Controller {
 			$data['molpay_vkey'] = $this->config->get('molpay_vkey');
 		}
 
-		if (isset($this->request->post['molpay_order_status_id'])) {
-			$data['molpay_order_status_id'] = $this->request->post['molpay_order_status_id'];
+		if (isset($this->request->post['molpay_skey'])) {
+			$data['molpay_skey'] = $this->request->post['molpay_skey'];
 		} else {
-			$data['molpay_order_status_id'] = $this->config->get('molpay_order_status_id');
+			$data['molpay_skey'] = $this->config->get('molpay_skey');
+		}
+
+		if (isset($this->request->post['molpay_type'])) {
+			$data['molpay_type'] = $this->request->post['molpay_type'];
+		} else {
+			$data['molpay_type'] = $this->config->get('molpay_type');
 		}
 		
 		if (isset($this->request->post['molpay_completed_status_id'])) {
@@ -154,15 +175,11 @@ class ControllerPaymentMolpay extends Controller {
 
 		//Load the data into variable
 		
-		foreach($data['channel_list'] as $key=>$val)
-		{
-			if (isset($this->request->post['molpay_'.$key.'_status'])) 
-			{
-				$data['molpay_'.$key.'_status'] = $this->request->post['molpay_'.$key.'_status'];
-			} 
-			else 
-			{
-				$data['molpay_'.$key.'_status'] = $this->config->get('molpay_'.$key.'_status');
+		foreach ($data['channel_list'] as $key=>$val) {
+			if (isset($this->request->post['molpay_'.$key.'_status'])) {
+				$data["dbchannel_list"]['molpay_'.$key.'_status'] = $this->request->post['molpay_'.$key.'_status'];
+			} else {
+				$data["dbchannel_list"]['molpay_'.$key.'_status'] = $this->config->get('molpay_'.$key.'_status');
 			}
 		}
 
@@ -186,6 +203,14 @@ class ControllerPaymentMolpay extends Controller {
 			$this->error['vkey'] = $this->language->get('error_vkey');
 		}
 
+		if (!$this->request->post['molpay_skey']) {
+			$this->error['skey'] = $this->language->get('error_skey');
+		}
+
+		if (!$this->request->post['molpay_type']) {
+			$this->error['type'] = $this->language->get('error_type');
+		}		
+		
 		return !$this->error;
 	}
 }

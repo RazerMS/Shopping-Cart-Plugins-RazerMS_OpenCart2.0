@@ -4,7 +4,7 @@
  * 
  * @package Payment Gateway
  * @author MOLPay Technical Team <technical@molpay.com>
- * @version 2.0
+ * @version 2.0.1
  */
  
 // Text
@@ -31,9 +31,8 @@ $_['channel_list']					= 	array(
 											'credit3' 		=> 'Multi Currency Credit Card',
 											'NGANLUONG' 	=> 'NGANLUONG',
 											'crossborder' 	=> 'Credit Card/ Debit Card (PayVision)',
-											'PEXPLUS' 	=> 'PEx+',
-											'jompay' 	=> 'JOMPay',
+											'PEXPLUS' 		=> 'PEx+',
+											'jompay' 		=> 'JOMPay',
 											'Cash-Esapay' 	=> 'Cash Esapay',
-											'alipay'	=> 'Alipay.com'
-											
+											'alipay'		=> 'Alipay.com'
 										);

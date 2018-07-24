@@ -4,7 +4,7 @@
  * 
  * @package Payment Gateway
  * @author MOLPay Technical Team <technical@molpay.com>
- * @version 2.0
+ * @version 2.0.1
  */
 
 class ControllerPaymentMolpay extends Controller {
@@ -15,18 +15,16 @@ class ControllerPaymentMolpay extends Controller {
 
 		$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 
-        if (isset($this->session->data['guest'])) 
-        {
+        if (isset($this->session->data['guest'])) {
             $email = $this->session->data['guest']['email'];
             $telephone = $this->session->data['guest']['telephone'];
-        }
-        else
-        {
+        } else {
             $email = $this->customer->getEmail();
             $telephone = $this->customer->getTelephone();
         }
 
-		$data['action'] = 'https://www.onlinepayment.com.my/MOLPay/pay/'.$this->config->get('molpay_mid').'/';
+		$data['action'] = $this->config->get('molpay_type').'MOLPay/pay/'.$this->config->get('molpay_mid').'/';
+		$data['js'] = $this->config->get('molpay_type')."/MOLPay/API/seamless/latest/js/MOLPay_seamless.deco.js";
 		$data['mid']= $this->config->get('molpay_mid');
 		$data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
 		$data['orderid'] = $this->session->data['order_id'];
@@ -41,16 +39,15 @@ class ControllerPaymentMolpay extends Controller {
         $this->load->language('payment/molpay');
         $channel_list = $this->language->get('channel_list');
 
-        foreach($channel_list as $key=>$val)
-        {
+        foreach ($channel_list as $key=>$val) {
             $inGet = 'molpay_'.$key.'_status';
             $data['channel_list'][$key] = $this->config->get($inGet);
         }
 
 		$products = $this->cart->getProducts();
-            foreach ($products as $product) {
-                $data['prod_desc'][]= $product['name']." x ".$product['quantity'];
-            }
+		foreach ($products as $product) {
+			$data['prod_desc'][]= $product['name']." x ".$product['quantity'];
+		}
 		
 		$data['lang'] = $this->session->data['language'];
 
@@ -58,16 +55,13 @@ class ControllerPaymentMolpay extends Controller {
 
 		$version_oc = substr(VERSION,0,3);
 
-	        if($version_oc == "2.2")
-	        {
+	        if ($version_oc == "2.2") {
 	            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/molpay.tpl')) {
 	            return $this->load->view($this->config->get('config_template') . '/template/payment/molpay.tpl', $data);
 	            } else {
 	                return $this->load->view('payment/molpay.tpl', $data);
 	            }
-	        }
-	        else
-	        {
+	        } else {
 	            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/molpay.tpl')) {
 	            return $this->load->view($this->config->get('config_template') . '/template/payment/molpay.tpl', $data);
 	            } else {
@@ -76,13 +70,16 @@ class ControllerPaymentMolpay extends Controller {
 	        }
 	}
 
+    /*****************************************************
+    * Return with IPN(Instant Payment Notification)
+    ******************************************************/	
 	public function return_ipn() {
  
         $this->load->model('checkout/order');
 
 		$order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
 		
-        $vkey = $this->config->get('molpay_vkey');
+        $secretkey = $this->config->get('molpay_skey');
 
         $_POST['treq']=   1;
 
@@ -99,11 +96,11 @@ class ControllerPaymentMolpay extends Controller {
         /***********************************************************
         * Backend acknowledge method for IPN (DO NOT MODIFY)
         ************************************************************/
-        while ( list($k,$v) = each($_POST) ) {
-          $postData[]= $k."=".$v;
-        }
+		foreach ($_POST as $k => $v) {
+			$postData[]= $k."=".$v;
+		}
         $postdata   = implode("&",$postData);
-        $url        = "https://www.onlinepayment.com.my/MOLPay/API/chkstat/returnipn.php";
+        $url        = $this->config->get('molpay_type')."MOLPay/API/chkstat/returnipn.php";
         $ch         = curl_init();
         curl_setopt($ch, CURLOPT_POST           , 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata);
@@ -112,7 +109,7 @@ class ControllerPaymentMolpay extends Controller {
         curl_setopt($ch, CURLINFO_HEADER_OUT    , TRUE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , FALSE);
-        //curl_setopt($ch, CURLOPT_SSLVERSION     , 3);
+        curl_setopt($ch, CURLOPT_SSLVERSION     , 6);
         $result = curl_exec( $ch );
         curl_close( $ch );
         /***********************************************************
@@ -120,12 +117,10 @@ class ControllerPaymentMolpay extends Controller {
         ************************************************************/
 		        
 		$key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-        $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+        $key1 = md5($paydate.$domain.$key0.$appcode.$secretkey);
 
         if ( $skey != $key1 ) 
             $status = -1 ;
-		
-		$order_status_id = $this->config->get('config_order_status_id');
         
         if ( $status == "00" )  {
 			$order_status_id = $this->config->get('molpay_completed_status_id');
@@ -138,11 +133,12 @@ class ControllerPaymentMolpay extends Controller {
                      
         }
 		
-		if (!$order_info['order_status_id']) {
-			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
-		} else {
-			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
+		$response=array();
+		foreach ($_POST as $k => $v) {
+			$response[] = "[".$k."]=".$v;
 		}
+		if ($order_info['order_status_id'] != $this->config->get('molpay_completed_status_id'))
+			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id, "RETURN URL \n".implode("\n ", $response), false, false);
 		
 		$successStatus = array('00','22');
        	if( in_array($status,$successStatus) ) {
@@ -175,7 +171,7 @@ class ControllerPaymentMolpay extends Controller {
     public function callback_ipn()   {
         $this->load->model('checkout/order');
 
-        $vkey = $this->config->get('molpay_vkey');
+        $secretkey = $this->config->get('molpay_skey');
 
         $nbcb = (isset($_POST['nbcb']) && !empty($_POST['nbcb'])) ? $_POST['nbcb'] : '';
         $tranID = (isset($_POST['tranID']) && !empty($_POST['tranID'])) ? $_POST['tranID'] : '';
@@ -189,35 +185,36 @@ class ControllerPaymentMolpay extends Controller {
         $skey = (isset($_POST['skey']) && !empty($_POST['skey'])) ? $_POST['skey'] : '';
 
         $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-        $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+        $key1 = md5($paydate.$domain.$key0.$appcode.$secretkey);
 
         if ( $skey != $key1 )
             $status = -1 ;
 
-        if ($nbcb == 1) {
-            echo "CBTOKEN:MPSTATOK";
-            $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
-            
-            
-            $order_status_id = $this->config->get('config_order_status_id');
-        
-			if ( $status == "00" )  {
-				$order_status_id = $this->config->get('molpay_completed_status_id');
-				
-			} elseif( $status == "22" ) {
-				$order_status_id = $this->config->get('molpay_pending_status_id');
-						
-			} else {
-				$order_status_id = $this->config->get('molpay_failed_status_id');
-						 
-			}
-			
-			if (!$order_info['order_status_id']) {
-				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
-			} else {
-				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
-			}
-        }
+		$order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
+		if ( $status == "00" )  {
+			$order_status_id = $this->config->get('molpay_completed_status_id');
+		} elseif( $status == "22" ) {
+			$order_status_id = $this->config->get('molpay_pending_status_id');
+		} else {
+			$order_status_id = $this->config->get('molpay_failed_status_id');
+		}
+		
+		$response=array();
+		foreach ($_POST as $k => $v) {
+			$response[] = "[".$k."]=".$v;
+		}
+		if ($order_info['order_status_id'] != $this->config->get('molpay_completed_status_id'))
+			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id, "CALLBACK URL \n".implode("\n ", $response), false, false);
+
+		/***********************************************************
+		* Backend acknowledge method for IPN (DO NOT MODIFY)
+		************************************************************/
+		if ($nbcb == 1) {
+			echo "CBTOKEN:MPSTATOK";exit;
+		}
+		/***********************************************************
+        * End of Acknowledge method for IPN
+        ************************************************************/
     }
 
     /*****************************************************
@@ -226,7 +223,7 @@ class ControllerPaymentMolpay extends Controller {
     public function notification_ipn()   {
         $this->load->model('checkout/order');
 
-        $vkey = $this->config->get('molpay_vkey');
+        $secretkey = $this->config->get('molpay_skey');
 
         $nbcb = (isset($_POST['nbcb']) && !empty($_POST['nbcb'])) ? $_POST['nbcb'] : '';
         $tranID = (isset($_POST['tranID']) && !empty($_POST['tranID'])) ? $_POST['tranID'] : '';
@@ -238,35 +235,54 @@ class ControllerPaymentMolpay extends Controller {
         $appcode = (isset($_POST['appcode']) && !empty($_POST['appcode'])) ? $_POST['appcode'] : '';
         $paydate = (isset($_POST['paydate']) && !empty($_POST['paydate'])) ? $_POST['paydate'] : '';
         $skey = (isset($_POST['skey']) && !empty($_POST['skey'])) ? $_POST['skey'] : '';
+		
+		/***********************************************************
+		* Backend acknowledge method for IPN (DO NOT MODIFY)
+		************************************************************/		
+        if ($nbcb == 2) {
+			foreach ($_POST as $k => $v) {
+				$postData[]= $k."=".$v;
+			}
+			$postdata   = implode("&",$postData);
+			$url        = $this->config->get('molpay_type')."MOLPay/API/chkstat/returnipn.php";
+			$ch         = curl_init();
+			curl_setopt($ch, CURLOPT_POST           , 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS     , $postdata);
+			curl_setopt($ch, CURLOPT_URL            , $url);
+			curl_setopt($ch, CURLOPT_HEADER         , 1);
+			curl_setopt($ch, CURLINFO_HEADER_OUT    , TRUE);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , FALSE);
+			curl_setopt($ch, CURLOPT_SSLVERSION     , 6);
+			$result = curl_exec( $ch );
+			curl_close( $ch );
+		}
+		/***********************************************************
+        * End of Acknowledge method for IPN
+        ************************************************************/
+
 
         $key0 = md5($tranID.$orderid.$status.$domain.$amount.$currency);
-        $key1 = md5($paydate.$domain.$key0.$appcode.$vkey);
+        $key1 = md5($paydate.$domain.$key0.$appcode.$secretkey);
 
         if ( $skey != $key1 )
             $status = -1 ;
+		
+		$order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
 
-        if ($nbcb == 2) {
-            echo "CBTOKEN:MPSTATOK";
-            $order_info = $this->model_checkout_order->getOrder($this->request->post['orderid']); // orderid
-            
-            $order_status_id = $this->config->get('config_order_status_id');
-        
-			if ( $status == "00" )  {
-				$order_status_id = $this->config->get('molpay_completed_status_id');
-				
-			} elseif( $status == "22" ) {
-				$order_status_id = $this->config->get('molpay_pending_status_id');
-						
-			} else {
-				$order_status_id = $this->config->get('molpay_failed_status_id');
-						 
-			}
-			
-			if (!$order_info['order_status_id']) {
-				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
-			} else {
-				$this->model_checkout_order->addOrderHistory($orderid, $order_status_id);
-			}
-        }
+		if ( $status == "00" )  {
+			$order_status_id = $this->config->get('molpay_completed_status_id');	
+		} elseif( $status == "22" ) {
+			$order_status_id = $this->config->get('molpay_pending_status_id');			
+		} else {
+			$order_status_id = $this->config->get('molpay_failed_status_id');
+		}
+
+		$response=array();
+		foreach ($_POST as $k => $v) {
+			$response[] = "[".$k."]=".$v;
+		}
+		if ($order_info['order_status_id'] != $this->config->get('molpay_completed_status_id'))
+			$this->model_checkout_order->addOrderHistory($orderid, $order_status_id, "NOTIFICATION URL \n".implode("\n ", $response), false, false);
     }
 }
