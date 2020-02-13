@@ -1,9 +1,10 @@
-MOLPay OpenCart Plugin v2.0
+Razer Merchant Services OpenCart Plugin v2.0
 ==============================
 ![opencart](https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg)
-![Screenshot for Opencart2.0 Seamless Plugin](https://cloud.githubusercontent.com/assets/6263224/5717583/333763e0-9b3e-11e4-8cbc-214294083ddf.jpg)
+![Screenshot-for-Opencart2 0-Seamless-Plugin](https://user-images.githubusercontent.com/38641542/74426080-b27c4580-4e8f-11ea-882d-803d100f5b55.jpg)
 
-MOLPay Plugin for OpenCart Shopping Cart develop by MOLPay technical team.
+
+Razer Merchant Services Plugin for OpenCart Shopping Cart develop by Razer Merchant Services technical team.
 
 Supported version
 -----------------
@@ -17,7 +18,7 @@ Notes
 -----
 MOLPay Sdn. Bhd. is not responsible for any problems that might arise from the use of this module. 
 Use at your own risk. Please backup any critical data before proceeding. For any query or 
-assistance, please email support@molpay.com
+assistance, please email support-sa@razer.com
 
 System Requirements
 --------------------
