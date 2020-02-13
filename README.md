@@ -1,6 +1,6 @@
 MOLPay OpenCart Plugin v2.0
 ==============================
-![MOLPay Technical Teams](https://github.com/MOLPay/Prestashop_Plugin/wiki/images/molpay-developer.jpg)
+![opencart](https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg)
 ![Screenshot for Opencart2.0 Seamless Plugin](https://cloud.githubusercontent.com/assets/6263224/5717583/333763e0-9b3e-11e4-8cbc-214294083ddf.jpg)
 
 MOLPay Plugin for OpenCart Shopping Cart develop by MOLPay technical team.
@@ -58,14 +58,14 @@ You can contribute to this plugin by sending the pull request to this repository
 
 Issues
 ------------
-Submit issue to this repository or email to our support@molpay.com
+Submit issue to this repository or email to our support-sa@razer.com
 
 Support
 -------
-Merchant Technical Support / Customer Care : support@molpay.com <br>
-Sales/Reseller Enquiry : sales@molpay.com <br>
-Marketing Campaign : marketing@molpay.com <br>
-Channel/Partner Enquiry : channel@molpay.com <br>
-Media Contact : media@molpay.com <br>
-R&D and Tech-related Suggestion : technical@molpay.com <br>
-Abuse Reporting : abuse@molpay.com
+Merchant Technical Support / Customer Care : support-sa@razer.com <br>
+Sales/Reseller Enquiry : sales-sa@razer.com <br>
+Marketing Campaign : marketing-sa@razer.com <br>
+Channel/Partner Enquiry : channel-sa@razer.com <br>
+Media Contact : media-sa@razer.com <br>
+R&D and Tech-related Suggestion : technical-sa@razer.com <br>
+Abuse Reporting : abuse-sa@razer.com
