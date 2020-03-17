@@ -70,11 +70,11 @@
             <label class="col-sm-2 control-label" for="input-type"><span data-toggle="tooltip" title="<?php echo $help_type; ?>"><?php echo $entry_type; ?></span></label>
             <div class="col-sm-10">
               <select name="molpay_type" id="input-type" class="form-control">
-              <?
-              $type = array("https://www.onlinepayment.com.my/"=> "Production", "https://sandbox.molpay.com/"=>"Sandbox");
+              <?php
+              $type = array("https://www.onlinepayment.com.my/"=> "Production", "https://sandbox.merchant.razer.com/"=>"Sandbox");
               foreach($type as $m=>$n){?>
                  <option value="<?=$m?>" <?=($molpay_type == $m)? 'selected': ''?>> <?=$n?></option>
-              <?}?>
+              <?php }?>
               </select>
               <?php if ($error_type) { ?>
               <div class="text-danger"><?php echo $error_type; ?></div>
@@ -193,19 +193,19 @@
           </div>
         </form>
 		<div>
-		  <b style="color:red;">Next step:</b>
-		  <ol >
-		 <li style="padding:5px"> Login to <b><a href="https://www.onlinepayment.com.my/MOLPay/" target="_blank" >MOLPay merchant Admin</a></b> and go to <b style="color:red;">merchant profile</b>. </li>
-		 <?php $molpay_url = parse_url(HTTP_SERVER);  ?>
-		  <li style="padding:5px"> Put below url for <b style="color:red;">Return URL</b> value and tick <b style="color:red;">"Enable Return URL with IPN"</b>.
-			<br />
-		  <i> <?php echo $molpay_url['scheme']; ?>://<?php echo $molpay_url['host']; ?>/index.php?route=payment/molpay/return_ipn
-		  </i></li>
+      <h4 style="color:#44d62c;">Next step:</h4>
+      <ol >
+     <li style="padding:5px"> Login to <b style="color:#44d62c;">Razer Merchant Services Merchant Portal</b> <b><a href="https://portal.merchant.razer.com/index.php?mod=authentication&opt=login" target="_blank" >Production</a></b> or <b><a href="https://sandbox.merchant.razer.com/MerchantPortal/index.php?mod=authentication&opt=login" target="_blank" >Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
+     <?php $molpay_url = parse_url(HTTP_SERVER);  ?>
+      <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Return URL</b> value and tick <b style="color:#44d62c;">"Enable Return URL with IPN"</b>.
+      <br />
+      <i> <?php echo $molpay_url['scheme']; ?>://<?php echo $molpay_url['host']; ?>/index.php?route=payment/molpay/return_ipn
+      </i></li>
 
-		  <li style="padding:5px"> Put below url for <b style="color:red;">Callback URL</b> and tick <b style="color:red;">"Yes"</b> to <b style="color:red;">"Enable Callback URL with IPN"</b>.
-			<br /><i> <?php echo $molpay_url['scheme']; ?>://<?php echo $molpay_url['host']; ?>/index.php?route=payment/molpay/callback_ipn </i></li>
-		  </ol>
-		</div>
+      <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Callback URL</b> and tick <b style="color:#44d62c;">"Yes"</b> to <b style="color:#44d62c;">"Enable Callback URL with IPN"</b>.
+      <br /><i> <?php echo $molpay_url['scheme']; ?>://<?php echo $molpay_url['host']; ?>/index.php?route=payment/molpay/callback_ipn </i></li>
+      </ol>
+    </div>
       </div>
     </div>
   </div>

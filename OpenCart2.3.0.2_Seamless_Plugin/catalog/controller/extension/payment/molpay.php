@@ -1,10 +1,10 @@
 <?php
 /**
- * MOLPay OpenCart Plugin
+ * Razer Merchant Services OpenCart Plugin
  * 
  * @package Payment Gateway
- * @author MOLPay Technical Team <technical@molpay.com>
- * @version 2.0
+ * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @version 3.0
  */
 
 class ControllerExtensionPaymentMolpay extends Controller {

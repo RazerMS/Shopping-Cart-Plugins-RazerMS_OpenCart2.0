@@ -14,13 +14,14 @@
 </form>
 <script src="<?php echo $js; ?>"></script>
 <div class="text-center">
-    <h3><u>Pay via</u><img src="admin/view/image/payment/molpay-logo.jpg">:</h3>
+    <h3><u>Pay via</u>:</h3>
+    <img src="admin/view/image/payment/logo_RazerMerchantServices.png" width="150px" height="auto">
 	<br/>
 	
 	<?php foreach($channel_list as $key=>$val): ?>
 	
 		<?php if($val == 1): ?>
-			<button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="<?php echo $key; ?>" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>" data-mpsreturnurl="<?php echo $returnurl; ?>"><img src="admin/view/image/payment/op-<?php echo $key; ?>.png" width="120px" height="60px" alt="<?php echo $key; ?>"/></button>
+			<button class="btn btn-default" type="button" id="myPay" data-toggle="molpayseamless" data-mpsmerchantid="<?php echo $mid; ?>" data-mpsbill_desc="<?php echo implode("\n",$prod_desc);?>" data-mpsbill_mobile="<?php echo $bill_mobile; ?>" data-mpsbill_email="<?php echo $bill_email; ?>" data-mpscountry="<?php echo $country; ?>" data-mpscurrency="<?php echo $currency;?>" data-mpschannel="<?php echo $key; ?>" data-mpsamount="<?php echo $amount; ?>" data-mpsorderid="<?php echo $orderid; ?>" data-mpsbill_name="<?php echo $bill_name; ?>" data-mpsvcode="<?php echo $vcode?>" data-mpsreturnurl="<?php echo $returnurl; ?>"><img src="admin/view/image/payment/op-<?php echo $key; ?>.png" width="150px" height="50px" alt="<?php echo $key; ?>"/></button>
 		<?php endif; ?>
 
 	<?php endforeach; ?>
