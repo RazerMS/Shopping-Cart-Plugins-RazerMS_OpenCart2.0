@@ -55,6 +55,7 @@ $_['channel_list']					= 	array(
 											'MB2U_QRPay-Push' 	=> 'Maybank QRPay',
 											'GrabPay' 			=> 'GrabPay',
 											'TNG-EWALLET' 		=> 'Touch \'N Go',
-											'WeChatPayMY' 		=> 'WeChat Pay MY'
+											'WeChatPayMY' 		=> 'WeChat Pay MY',
+											'ShopeePay' 		=> 'Shopee Pay'
 											
 										);
