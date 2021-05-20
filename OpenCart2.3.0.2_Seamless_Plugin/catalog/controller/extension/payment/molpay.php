@@ -78,6 +78,8 @@ class ControllerExtensionPaymentMolpay extends Controller {
 	}
 
 	public function return_ipn() {
+
+        header('Set-Cookie: ' . $this->config->get('session_name') . '=' . $this->session->getId() . '; SameSite=None; Secure');
  
         $this->load->model('checkout/order');
 
