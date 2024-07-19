@@ -1,4 +1,4 @@
-[Shopping Cart Plugins] – RazerMS OpenCart
+[Shopping Cart Plugins] – Fiuu OpenCart
 ==============================
 ![opencart](https://user-images.githubusercontent.com/38641542/74417583-ebadb900-4e81-11ea-94b4-249009025b48.jpg)  
 
@@ -9,7 +9,7 @@
 ![image](https://user-images.githubusercontent.com/19460508/76842757-baa41800-6875-11ea-804f-887d5f8f89da.png)
 
 
-Razer Merchant Services Plugin for OpenCart Shopping Cart develop by Razer Merchant Services technical team.
+Fiuu Plugin for OpenCart Shopping Cart develop by Fiuu technical team.
 
 Supported version
 -----------------
@@ -21,9 +21,9 @@ New Update
 
 Notes
 -----
-Razer Merchant Services is not responsible for any problems that might arise from the use of this module. 
+Fiuu is not responsible for any problems that might arise from the use of this module. 
 Use at your own risk. Please backup any critical data before proceeding. For any query or 
-assistance, please email support-sa@razer.com
+assistance, please email support-sa@fiuu.com
 
 System Requirements
 --------------------
@@ -40,23 +40,23 @@ You can contribute to this plugin by sending the pull request to this repository
 
 ## Resources
 
-- GitHub:     https://github.com/RazerMS
-- Website:    https://merchant.razer.com/
-- Twitter:    https://twitter.com/Razer_MS
-- YouTube:    https://www.youtube.com/c/RazerMerchantServices
-- Facebook:   https://www.facebook.com/RazerMerchantServices/
-- Instagram:  https://www.instagram.com/RazerMerchantServices/
+- GitHub:     https://github.com/FiuuPayment
+- Website:    https://fiuu.com/
+- X:          https://x.com/FiuuPayment
+- YouTube:    https://www.youtube.com/@FiuuPayment
+- Facebook:   https://www.facebook.com/FiuuPayment
+- Instagram:  https://www.instagram.com/fiuupayment
 
 Issues
 ------------
-Submit issue to this repository or email to our support-sa@razer.com
+Submit issue to this repository or email to our support-sa@fiuu.com
 
 Support
 -------
-Merchant Technical Support / Customer Care : support-sa@razer.com <br>
-Sales/Reseller Enquiry : sales-sa@razer.com <br>
-Marketing Campaign : marketing-sa@razer.com <br>
-Channel/Partner Enquiry : channel-sa@razer.com <br>
-Media Contact : media-sa@razer.com <br>
-R&D and Tech-related Suggestion : technical-sa@razer.com <br>
-Abuse Reporting : abuse-sa@razer.com
+Merchant Technical Support / Customer Care : support-sa@fiuu.com <br>
+Sales/Reseller Enquiry : sales-sa@fiuu.com <br>
+Marketing Campaign : marketing-sa@fiuu.com <br>
+Channel/Partner Enquiry : channel-sa@fiuu.com <br>
+Media Contact : media-sa@fiuu.com <br>
+R&D and Tech-related Suggestion : technical-sa@fiuu.com <br>
+Abuse Reporting : abuse-sa@fiuu.com

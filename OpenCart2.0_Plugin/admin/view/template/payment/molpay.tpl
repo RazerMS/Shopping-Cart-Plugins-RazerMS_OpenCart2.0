@@ -58,7 +58,7 @@
 						<div class="col-sm-10">
 							<select name="molpay_type" id="input-type" class="form-control">
 								<?
-								$type = array("https://www.onlinepayment.com.my/"=> "Production", "https://sandbox.molpay.com/"=>"Sandbox");
+								$type = array("https://www.onlinepayment.com.my/"=> "Production", "https://sandbox.merchant.razer.com/"=>"Sandbox");
 								foreach($type as $m=>$n){?>
 									<option value="<?=$m?>" <?=($molpay_type == $m)? 'selected': ''?>> <?=$n?></option>
 								<?}?>
@@ -149,7 +149,7 @@
 				<div>
 					<b style="color:red;">Next step:</b>
 					<ol>
-						<li style="padding:5px"> Login to <b><a href="https://www.onlinepayment.com.my/MOLPay/" target="_blank" >MOLPay merchant Admin</a></b> and go to <b style="color:red;">merchant profile</b>. </li>
+						<li style="padding:5px"> Login to <b><a href="https://www.onlinepayment.com.my/MOLPay/" target="_blank" >Fiuu merchant Admin</a></b> and go to <b style="color:red;">merchant profile</b>. </li>
 						<?php $molpay_url = parse_url(HTTP_SERVER);  ?>
 						<li style="padding:5px"> Put below url for <b style="color:red;">Return URL</b> value and tick <b style="color:red;">"Enable Return URL with IPN"</b>.
 							<br /><i> <?php echo $molpay_url['scheme']; ?>://<?php echo $molpay_url['host']; ?>/index.php?route=payment/molpay/return_ipn</i>

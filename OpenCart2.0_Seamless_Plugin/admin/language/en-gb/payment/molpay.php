@@ -1,9 +1,9 @@
 <?php
 /**
- * MOLPay OpenCart Plugin
+ * Fiuu OpenCart Plugin
  * 
  * @package Payment Gateway
- * @author MOLPay Technical Team <technical@molpay.com>
+ * @author Fiuu Technical Team <technical@fiuu.com>
  * @version 2.0.1
  */
  
@@ -12,19 +12,19 @@ $_['molpay_ptype'] = "OpenCart";
 $_['molpay_pversion'] = "2.0.1";
 
 // Heading
-$_['heading_title']					= 'MOLPay Malaysia Online Payment Gateway';
+$_['heading_title']					= 'Fiuu Online Payment Gateway';
 
 // Text
 $_['text_payment']					= 'Payment';
-$_['text_success']					= 'Success: You have modified MOLPay Malaysia Online Payment Gateway account details!';
-$_['text_edit']                     = 'Edit MOLPay';
-$_['text_molpay']	     			= '<a onclick="window.open(\'http://www.molpay.com/\');" style="text-decoration:none;"><img src="view/image/payment/molpay-logo.jpg" alt="MOLPay Online Payment Gateway" title="MOLPay Malaysia Online Payment Gateway" style="border: 0px solid #EEEEEE;" height=63 width=198/></a>';
+$_['text_success']					= 'Success: You have modified Fiuu Online Payment Gateway account details!';
+$_['text_edit']                     = 'Edit Fiuu';
+$_['text_molpay']	     			= '<a onclick="window.open(\'http://www.fiuu.com/\');" style="text-decoration:none;"><img src="view/image/payment/Fiuu_Logo.png" alt="Fiuu Online Payment Gateway" title="Fiuu Online Payment Gateway" style="border: 0px solid #EEEEEE;" height=63 width=198/></a>';
 
 // Entry
-$_['entry_mid']						= 'MOLPay Merchant ID';
-$_['entry_vkey']					= 'MOLPay Verify Key';
-$_['entry_skey']					= 'MOLPay Secret Key';
-$_['entry_type']                    = 'MOLPay Account Type';
+$_['entry_mid']						= 'Fiuu Merchant ID';
+$_['entry_vkey']					= 'Fiuu Verify Key';
+$_['entry_skey']					= 'Fiuu Secret Key';
+$_['entry_type']                    = 'Fiuu Account Type';
 $_['entry_completed_status']		= 'Completed Status';
 $_['entry_pending_status']			= 'Pending Status';
 $_['entry_failed_status']			= 'Failed Status';
@@ -44,7 +44,7 @@ $_['channel_list']					= 	array(
 											'pbb' 			=> 'PublicBank (PBB Online)',
 											'rhb' 			=> 'RHB Bank(RHB Now)',
 											'molwallet' 	=> 'MOLWallet',
-											'cash-711' 		=> '7-Eleven(MOLPay Cash)',
+											'cash-711' 		=> '7-Eleven(Razer Cash)',
 											'credit' 		=> 'Credit Card/ Debit Card',
 											'ATMVA' 		=> 'ATM Transfer via Permata Bank',
 											'dragonpay' 	=> 'Dragonpay',
@@ -60,16 +60,16 @@ $_['channel_list']					= 	array(
 										);
 
 // Help
-$_['help_vkey']						= 'Please refer to your MOLPay Merchant Profile for this key.';
-$_['help_skey']                     = 'Please refer to your MOLPay Merchant Profile for this key.';
+$_['help_vkey']						= 'Please refer to your Fiuu Merchant Profile for this key.';
+$_['help_skey']                     = 'Please refer to your Fiuu Merchant Profile for this key.';
 $_['help_type']                     = 'Please choose your account type (Sandbox/Production)';
 $_['type'] 							= array(1=> "Production", 2=>"Sandbox");
 
 // Error
-$_['error_permission']				= 'Warning: You do not have permission to modify MOLPay Malaysia Online Payment Gateway!';
-$_['error_mid']						= '<b>MOLPay Merchant ID</b> Required!';
-$_['error_vkey']					= '<b>MOLPay Verify Key</b> Required!';
-$_['error_skey']					= '<b>MOLPay Secret Key</b> Required!';
-$_['error_type']					= '<b>MOLPay Account Type</b> Required!';
-$_['error_settings']       			= 'MOLPay merchant id and verify key mismatch, contact support@molpay.com to assist.';
-$_['error_status']          		= 'Unable to connect MOLPay API.';
+$_['error_permission']				= 'Warning: You do not have permission to modify Fiuu Online Payment Gateway!';
+$_['error_mid']						= '<b>Fiuu Merchant ID</b> Required!';
+$_['error_vkey']					= '<b>Fiuu Verify Key</b> Required!';
+$_['error_skey']					= '<b>Fiuu Secret Key</b> Required!';
+$_['error_type']					= '<b>Fiuu Account Type</b> Required!';
+$_['error_settings']       			= 'Fiuu merchant id and verify key mismatch, contact support@fiuu.com to assist.';
+$_['error_status']          		= 'Unable to connect Fiuu API.';

@@ -14,7 +14,7 @@
 </form>
 <script src="<?php echo $js; ?>"></script>
 <div class="text-center">
-    <h3><u>Pay via</u><img src="admin/view/image/payment/molpay-logo.jpg">:</h3>
+    <h3><u>Pay via</u><img src="admin/view/image/payment/Fiuu_Logo.png">:</h3>
 	<br/>
 	
 	<?php foreach($channel_list as $key=>$val): ?>

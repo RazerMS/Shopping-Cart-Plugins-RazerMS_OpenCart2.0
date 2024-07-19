@@ -15,7 +15,7 @@
 <script src="<?php echo $js; ?>"></script>
 <div class="text-center">
     <h3><u>Pay via</u>:</h3>
-    <img src="admin/view/image/payment/logo_RazerMerchantServices.png" width="150px" height="auto">
+    <img src="admin/view/image/payment/Fiuu_Logo.png" width="150px" height="auto">
 	<br/>
 	
 	<?php foreach($channel_list as $key=>$val): ?>

@@ -1,9 +1,9 @@
 <?php
 /**
- * Razer Merchant Services OpenCart Plugin
+ * Fiuu OpenCart Plugin
  * 
  * @package Payment Gateway
- * @author Razer Merchant Services Technical Team <technical-sa@razer.com>
+ * @author Fiuu Technical Team <technical-sa@fiuu.com>
  * @version 3.0
  */
 

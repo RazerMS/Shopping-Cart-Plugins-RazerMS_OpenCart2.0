@@ -195,7 +195,7 @@
 		<div>
       <h4 style="color:#44d62c;">Next step:</h4>
       <ol >
-     <li style="padding:5px"> Login to <b style="color:#44d62c;">Razer Merchant Services Merchant Portal</b> <b><a href="https://portal.merchant.razer.com/index.php?mod=authentication&opt=login" target="_blank" >Production</a></b> or <b><a href="https://sandbox.merchant.razer.com/MerchantPortal/index.php?mod=authentication&opt=login" target="_blank" >Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
+     <li style="padding:5px"> Login to <b style="color:#44d62c;">Fiuu Merchant Portal</b> <b><a href="https://portal.merchant.razer.com/index.php?mod=authentication&opt=login" target="_blank" >Production</a></b> or <b><a href="https://sandbox.merchant.razer.com/MerchantPortal/index.php?mod=authentication&opt=login" target="_blank" >Sandbox</a></b> and go to <b style="color:#44d62c;">Transactions -> Settings</b>.</li>
      <?php $molpay_url = parse_url(HTTP_SERVER);  ?>
       <li style="padding:5px"> Put below url for <b style="color:#44d62c;">Return URL</b> value and tick <b style="color:#44d62c;">"Enable Return URL with IPN"</b>.
       <br />
